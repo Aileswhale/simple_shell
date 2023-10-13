@@ -1,63 +1,67 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/wait.h>
+#include "main.h"
 
-#define MAX_COMMAND_LENGTH 1024
+/**
+ * signal_handler - handles ^C signal interupt
+ * @unused: unused variable (required for signal function prototype)
+ *
+ * Return: void
+ */
+static void signal_handler(int unused)
+{
+	(void)unused;
+	if (signal_flag == 0)
+		_prints("\n$ ");
+	else
+		_prints("\n");
+}
+/**
+ * main - main function for the shell
+ * @argc: number of arguments passed to main, unused
+ * @argv: array of arguments passed to main
+ * @environ: array of environ variables
+ *
+ * Return: 0 or exit status, or ?
+ */
+int main(int argc __attribute__((unused)), char **argv, char **environ)
+{
+	size_t length_buffer = 0;
+	unsigned int i;
+	unsigned int pipe = 0;
 
-int main(void) {
-	char *input = NULL;  // Dynamically allocate memory for input
-	size_t input_size = 0;
-	char *argv[2];  // We'll only execute single-word commands
-	char *prompt = "#cisfun$ ";
+	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
 
-	while (1) {
-		printf("%s", prompt);
+	vars.argv = argv;
+	vars.env = make_shell_enviroment(environ);
 
-		// Use getline to read user input
-		ssize_t read_size = getline(&input, &input_size, stdin);
+	signal(SIGINT, signal_handler);
 
-		if (read_size == -1) {
-			// Handle EOF (Ctrl+D) or error
-			break;
+	if (!isatty(STDIN_FILENO))
+		pipe = 1;
+	if (pipe == 0)
+		_prints("$ ");
+	signal_flag = 0;
+
+	while (getline(&(vars.buff), &length_buffer, stdin) != -1)
+	{
+		vars.vars_counter++;
+		vars.cmd = tokenise(vars.buff, ";");
+		for (i = 0; vars.cmd && vars.cmd[i] != NULL; i++)
+		{
+			vars.array_tok = tokenise(vars.cmd[i], " \t\r\n\a");
+			if (vars.array_tok && vars.array_tok[0])
+				if (builtin_cmd(&vars) == NULL)
+				{
+					child_fork(vars);
+				}
+			free(vars.array_tok);
 		}
-
-		// Remove the newline character from input
-		input[strcspn(input, "\n")] = '\0';
-
-		// Check if the command is "exit" to exit the shell
-		if (strcmp(input, "exit") == 0) {
-			break;
-		}
-
-		// Fork a child process
-		pid_t pid = fork();
-
-		if (pid < 0) {
-			perror("fork");
-			free(input);  // Free dynamically allocated memory
-			exit(EXIT_FAILURE);
-		}
-
-		if (pid == 0) {
-			// Child process
-			argv[0] = input;
-			argv[1] = NULL;
-
-			execve(input, argv, NULL); // Execute the command
-
-			// If execve fails, print an error message
-			perror("./shell");
-			free(input);  // Free dynamically allocated memory
-			exit(EXIT_FAILURE);
-		} else {
-			// Parent process
-			int status;
-			waitpid(pid, &status, 0); // Wait for the child to finish
-		}
+		free(vars.buff);
+		free(vars.cmd);
+		if (pipe == 0)
+			_prints("$ ");
+		vars.buff = NULL;
 	}
-
-	free(input);  // Free dynamically allocated memory
-	return 0;
+	free_env(vars.env);
+	free(vars.buff);
+	exit(vars.status);
 }
