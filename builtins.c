@@ -63,7 +63,7 @@ void exit_program(vars_t *vars)
 	free(vars->array_tok);
 
 
-	print_the_enviroment(vars->env);
+	free_shell_env(vars->env);
 	free(vars->buff);
 	exit(vars->status);
 }
@@ -117,7 +117,7 @@ void create_new_env(vars_t *vars)
 			free(vars->buff);
 			free(vars->array_tok);
 			free(vars->cmd);
-			print_the_enviroment(vars->env);
+			free_shell_env(vars->env);
 			exit(127);
 		}
 		free(*keys);

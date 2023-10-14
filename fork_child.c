@@ -52,7 +52,7 @@ void child_fork(vars_t vars)
 char *find_path(vars_t vars, char *cmd)
 {
 	char *string = "PATH";
-	char *construct;
+	char *constrct;
 	char **token_path;
 	int index, i;
 	char *dir;
@@ -70,8 +70,8 @@ char *find_path(vars_t vars, char *cmd)
 		free(token_path);
 		return (NULL);
 	}
-	construct = path_build(dir, cmd);
-	if (construct == NULL)
+	constrct = path_build(dir, cmd);
+	if (constrct == NULL)
 	{
 		for (i = 0; token_path[i] != NULL; i++)
 			free(token_path[i]);
@@ -81,7 +81,7 @@ char *find_path(vars_t vars, char *cmd)
 	for (i = 0; token_path[i] != NULL; i++)
 		free(token_path[i]);
 	free(token_path);
-	return (construct);
+	return (constrct);
 }
 
 /**

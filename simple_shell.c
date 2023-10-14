@@ -10,9 +10,9 @@ static void signal_handler(int unused)
 {
 	(void)unused;
 	if (signal_flag == 0)
-		_prints("\n$ ");
+		write(1, "\n$ ", 2);
 	else
-		_prints("\n");
+		write(1, "\n", 2);
 }
 /**
  * main - main function for the shell
@@ -38,7 +38,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environ)
 	if (!isatty(STDIN_FILENO))
 		pipe = 1;
 	if (pipe == 0)
-		_prints("$ ");
+		write(1, "$ ", 2);
 	signal_flag = 0;
 
 	while (getline(&(vars.buff), &length_buffer, stdin) != -1)
@@ -58,10 +58,10 @@ int main(int argc __attribute__((unused)), char **argv, char **environ)
 		free(vars.buff);
 		free(vars.cmd);
 		if (pipe == 0)
-			_prints("$ ");
+			write(1, "$ ", 2);
 		vars.buff = NULL;
 	}
-	free_env(vars.env);
+	free_shell_env(vars.env);
 	free(vars.buff);
 	exit(vars.status);
 }
