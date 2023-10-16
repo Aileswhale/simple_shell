@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
- * new_the_cd - Changes the current working directory .
- * if no parameter is passed it will change directory to HOME.
- * @vars: A string representing the input from the user.
+ * new_the_cd - Modifies the current working directory.
+ * If no parameter is provided, it changes the directory to HOME.
+ * @vars: A string containing the user input.
  */
+
 void new_the_cd(vars_t *vars)
 {
 	int i;

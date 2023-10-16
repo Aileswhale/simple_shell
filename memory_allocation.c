@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * _realloc - reallocates a pointer to double the space
- * @pointer: pointer to the old array
- * @sizes: pointer to number of elements in the old array
+ * _realloc - Doubles the space allocated for a pointer.
+ * @pointer: Pointer to the original array.
+ * @sizes: Pointer to the number of elements in the original array.
  *
- * Return: pointer to the new array
+ * Return: Pointer to the newly reallocated array.
  */
+
 char **_realloc(char **pointer, size_t *sizes)
 {
 	char **new;

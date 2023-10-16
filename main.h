@@ -14,9 +14,9 @@
 #include <fcntl.h>
 
 /**
- * struct history - An structure for each command readed
+ * struct history - A structure for each command read
  * @string: string
- * @counter: number of imputs
+ * @counter:the number of inputs
  * @next: Next element
  */
 
@@ -28,19 +28,18 @@ typedef struct history
 
 } history_t;
 
-/**fixing**/
-/**** Estructura con las posibles variables que vamos a usar ****/
+
 /**
- * struct variables - variables
- * @array_tokens: array of tokens(arguments)
+ * struct variables - a structure of various variables
+ * @array_tokens:an array of tokens(arguments)
  * @buffer: buffer of command
- * @status: to handle exit status
- * @argv: gets arguments at opening of shell
+ * @status: Manage exit status
+ * @argv: retrieves arguments at opening of shell
  * @counter: counts commands entered
- * @env: has enviroment
+ * @env: holds enviroment information
  * @commands: have commands.
- * @history: structure
- * @invert: structure
+ * @history: structure data for history
+ * @invert: structure data for inversion
  */
 typedef struct variables
 {
@@ -57,9 +56,9 @@ typedef struct variables
 } vars_t;
 
 /**
- * struct builtins - struct for the builtin functions
- * @names: names of builtin command
- * @f: function for corresponding builtin
+ * struct builtins - structure for the builtin functions
+ * @names: contains names of builtin command
+ * @f: function for the corresponding builtin
  */
 typedef struct builtins
 {
@@ -67,7 +66,7 @@ typedef struct builtins
 	void (*f)(vars_t *);
 } builtins_t;
 
-/******Some String operations and manipulation******/
+/*** String operations and manipulation***/
 ssize_t _print(char *string);
 void print_string(char *string, int newline);
 int _putchar(char c);
@@ -103,8 +102,8 @@ char *int_converter(unsigned int counter);
 /** function to help exit builting*/
 int _atoi(char *str);
 
-/** functions de help env builting*/
-/*this to get enviroment*/
+
+/*functions to get enviroment*/
 char **make_shell_enviroment(char **env);
 void free_shell_env(char **env);
 
@@ -121,7 +120,7 @@ void new_help_builtin_setenv(vars_t *vars);
 void new_help_alias_builtin(vars_t *vars);
 void new_help_else_builtin(vars_t *vars);
 
-/** FUNCTIONS FOR SETENV AND UNSETENV**/
+/** FUNCTIONS RELETETD SETENV AND UNSETENV**/
 void new_setenv(vars_t *vars);
 void add_keys(vars_t *vars);
 char *add_values(char *keys, char *values);

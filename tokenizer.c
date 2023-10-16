@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * tokenise - tokenizes a buff with a deli
- * @buff: buff to tokenize
- * @deli: deli to tokenize along
+ * tokenise - Splits a buffer into tokens using a delimiter
+ * @buff: Buffer to be tokenized
+ * @deli: Delimiter to use for tokenization
  *
- * Return: pointer to an array of pointers to the tokens
+ * Return: A pointer to an array of pointers pointing to the tokens
  */
 char **tokenise(char *buff, char *deli)
 {
@@ -37,13 +37,16 @@ char **tokenise(char *buff, char *deli)
 	return (tokens);
 }
 
+
 /**
- * tokeniz - tokenizes a buff with a deli just use for for_child
- * @lines: buff to tokenize
- * @deli: deli to tokenize along
- * @token_counts: token count, size.
- * Return: pointer to an array of pointers to the tokens
+ * tokeniz - Splits a buff using a deli, specifically for for_child usage
+ * @lines: Buffer to be tokenized
+ * @deli: Delimiter to be used for tokenization
+ * @token_counts: Count and size of the tokens
+ *
+ * Return: Pointer to an array of pointers that point to the tokens
  */
+
 char **tokeniz(int token_counts, char *lines, const char *deli)
 {
 	int i;
@@ -67,9 +70,9 @@ char **tokeniz(int token_counts, char *lines, const char *deli)
 }
 
 /**
- * token_intrface - token interface
- * @lines: lines get to be tokenized
- * @deli: eny deli lie ; % " ", etc.
+ * token_intrface -the token interface
+ * @lines:the lines get to be tokenized
+ * @deli: eny delimiter lie ; % " ", etc.
  * @token_counts: token counter.
  * Return: tokens
  **/
@@ -94,10 +97,10 @@ char **token_intrface(char *lines, const char *deli, int token_counts)
 }
 
 /**
- * count_tokens - token's count
+ * count_tokens -the token count
  * @lines: string.
- * @deli: deli
- * Return: token's count
+ * @deli: delimiter
+ * Return:the token count
  **/
 int count_tokens(char *lines, const char *deli)
 {

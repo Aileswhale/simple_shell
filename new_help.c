@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * new_help_builtin_cmd - help builtin command
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * @vars: if the command matches a builtin name
+ *	the text files is sent to standard output
  * Return: 0 if sucess
  */
 
@@ -42,7 +43,8 @@ void new_help_builtin_cmd(vars_t *vars)
 
 /**
  * new_help_help_builtin - help builtin command help
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * @vars: if command matches a builtin name
+ *	the text files is sent to standard output
  * Return: 0 if sucess
  */
 void new_help_help_builtin(vars_t *vars)
@@ -81,7 +83,8 @@ void new_help_help_builtin(vars_t *vars)
 
 /**
  * new_help_exit_builtin - help builtin command exit
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * @vars: if command matches a builtin name
+ *	the text files is sent to standard output
  * Return: 0 if sucess
  */
 void new_help_exit_builtin(vars_t *vars)
@@ -120,7 +123,8 @@ void new_help_exit_builtin(vars_t *vars)
 }
 /**
  * new_help_cd_builtin - help builtin command cd
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * @vars: if the command matches a builtin name,
+ *	the text files is sent to standard output
  * Return: 0 if sucess
  */
 void new_help_cd_builtin(vars_t *vars)
@@ -159,7 +163,8 @@ void new_help_cd_builtin(vars_t *vars)
 }
 /**
  * new_help_env_builtin - help builtin command env
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * @vars: if the command matches a builtin name
+ *	the text files is sent to standard output
  * Return: 0 if sucess
  */
 void new_help_env_builtin(vars_t *vars)

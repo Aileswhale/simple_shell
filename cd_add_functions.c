@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * print_cdir_1 - Prints error when cd argument in invalid
- *              i.e. cd -asd22
- * @vars: vars parameter to include
- * Return: Always return void and print a messaje as shown below.
+ * print_cdir_1 - Prints an error message when the 'cd' argument is invalid,
+ *               for example, 'cd -asd22'.
+ * @vars: The variables parameter to include.
+ * Return: This function always returns void and prints the following message.
  */
 void print_cdir_1(vars_t *vars)
 {
@@ -15,11 +15,12 @@ void print_cdir_1(vars_t *vars)
 }
 
 /**
- * print_cdir_2 - Prints error message when cd argument doesn'n exist.
- *              i.e. cd das7d32
- * @vars: vars parameter to include
- * Return: Always return void and print a messaje as shown below.
+ * print_cdir_2 - Prints an error message if the specified cd argument does not exist.
+ *               For example, if the argument is 'cd das7d32'.
+ * @vars: Parameter to include vars
+ * Return: Always returns void and prints the following message.
  */
+
 void print_cdir_2(vars_t *vars)
 {
 	print_string("-bash: cd: ", 1);

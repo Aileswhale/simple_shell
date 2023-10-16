@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * _print_error - print a string to sdandart error
- * @string: string to print.
+ * _print_error -helps print a string to a sdandard  error
+ * @string:the string to be printed.
  * Return: void
  */
 
@@ -20,14 +20,14 @@ void _print_error(char *string)
 	}
 }
 
-/**** imprime mensage de error con ciertor parametros ****/
 /**
- * print_error_message - prints error messages to standard error
- * @vars: pointer to struct of variables
- * @message: message to print
+ * print_error_message - Prints error messages to standard error
+ * @vars: Pointer to a structure of variables
+ * @message: Message to be printed
  *
  * Return: void
  */
+
 
 void print_error_message(vars_t *vars, char *message)
 {
@@ -36,7 +36,7 @@ void print_error_message(vars_t *vars, char *message)
 	_print_error(vars->argv[0]);
 	_print_error(": ");
 
-	/*aqui croe una funcion para convertir un entero a string*/
+
 	counter = int_converter(vars->vars_counter);
 	_print_error(counter);
 	free(counter);
@@ -51,10 +51,10 @@ void print_error_message(vars_t *vars, char *message)
 }
 
 /**
- * int_converter - converts an unsigned int to a string
- * @counter: unsigned int to convert
+ * int_converter - Converts an unsigned integer to a string
+ * @counter: an unsigned integer to be converted
  *
- * Return: pointer to the converted string
+ * Return: the pointer to the converted string
  */
 
 char *int_converter(unsigned int counter)
@@ -74,6 +74,7 @@ char *int_converter(unsigned int counter)
 		perror("Error");
 		exit(100);
 	}
+
 
 	num_str[digts] = '\0';
 

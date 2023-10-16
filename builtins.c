@@ -1,10 +1,12 @@
 #include "main.h"
-
 /**
- * builtin_cmd - checks if the command is a builtin
- * @vars: variables
- * Return: pointer to the function or NULL
+ * builtin_cmd - verifies whether the command is a builtin
+ * @vars: variables to be checked
+ *
+ * Return: pointer to the function if it's a builtin, otherwise NULL
  */
+
+
 void (*builtin_cmd(vars_t *vars))(vars_t *vars)
 {
 	unsigned int i;
@@ -21,7 +23,7 @@ void (*builtin_cmd(vars_t *vars))(vars_t *vars)
 
 	for (i = 0; check[i].f != NULL; i++)
 	{
-		/** vars->array_tok esta accediendo a los argumentos para el match */
+
 		if (strcmp(vars->array_tok[0], check[i].names) == 0)
 			break;
 	}
@@ -31,7 +33,7 @@ void (*builtin_cmd(vars_t *vars))(vars_t *vars)
 }
 
 /**
- * exit_program - exit program
+ * exit_program - exitthe program
  * @vars: variables
  * Return: void
  */
@@ -39,19 +41,18 @@ void exit_program(vars_t *vars)
 {
 
 	int status;
-	/**Si exit tiene argumentos, lo manejamos*/
+
 	if (strcmp(vars->array_tok[0], "exit") ==
 			0 &&
 			vars->array_tok[1] != NULL)
 
 	{
-		/* con esta funcion nos aseguramos que el numero ingresado sea valido*/
+
 		status = atoi(vars->array_tok[1]);
-		/* manejamos caso de error*/
+
 		if (status == -1)
 		{
 			vars->status = 2;
-			/*imprimira un mensaje de error */
 			print_error_message(vars, ": Illegal number: ");
 			print_msg(vars->array_tok[1]);
 			print_msg("\n");
@@ -70,7 +71,7 @@ void exit_program(vars_t *vars)
 
 /**
  * print_the_enviroment - prints the current environment
- * @vars: struct of variables
+ * @vars: a struct of variables
  * Return: void.
  */
 void print_the_enviroment(vars_t *vars)
@@ -87,7 +88,7 @@ void print_the_enviroment(vars_t *vars)
 
 /**
  * create_new_env - create a new environment variable, or edit an existing variable
- * @vars: pointer to struct of variables
+ * @vars: a pointer to a struct of variables
  *
  * Return: void
  */
@@ -95,7 +96,7 @@ void create_new_env(vars_t *vars)
 {
 	char **keys;
 	char *var;
-	/** si los argumentos de setenv son errones imprimimos mensaje de error**/
+
 	if (vars->array_tok[1] == NULL || vars->array_tok[2] == NULL)
 	{
 
@@ -128,7 +129,7 @@ void create_new_env(vars_t *vars)
 
 /**
  * remove_new_env - remove an environment variable
- * @vars: pointer to a struct of variables
+ * @vars: a pointer to a struct of variables
  *
  * Return: void
  */

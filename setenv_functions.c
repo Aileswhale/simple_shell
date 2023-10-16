@@ -2,11 +2,12 @@
 
 /**
  * add_values - create a new environment variable string
- * @keys: variable name
+ * @keys:the vriable name
  * @values: variable values
  *
  * Return: pointer to the new string;
  */
+
 
 char *add_values(char *keys, char *values)
 {
@@ -29,10 +30,10 @@ char *add_values(char *keys, char *values)
 
 /**
  * find_keys - finds an environment variable
- * @env: array of environment variables
+ * @env:an  array containing  environment variables
  * @keys: environment variable to find
  *
- * Return: pointer to address of the environment variable
+ * Return:a pointer to address of the environment variable
  */
 
 char **find_keys(char **env, char *keys)
@@ -55,7 +56,7 @@ char **find_keys(char **env, char *keys)
 
 /**
  * add_keys - create a new environment variable
- * @vars: pointer to struct of variables
+ * @vars:a pointer to the structure of variables
  *
  * Return: void
  */

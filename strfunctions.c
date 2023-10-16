@@ -1,9 +1,9 @@
 #include "main.h"
 
-/*** WRITES STRING TO STDOUT ***/
+
 /**
- * _print - writes a string to standard output
- * @string: string to write
+ * _print - prints the string to the standard output
+ * @string: string to print
  *
  * Return: number of chars printed or -1 on failure
  */

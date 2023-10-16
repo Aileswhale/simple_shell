@@ -1,9 +1,7 @@
 #include "main.h"
-
-/*** PRINT WITOUTH USING PRINF AND ADDING NEWLINE AS NEEDED ***/
 /**
  * print_string - Prints a string character by character.
- * @string: String to be printed. If the string is NULL it will print (null)
+ * @string:the string to be printed. If the string is NULL it will print (null)
  * @newline: If integer is 0 a new line will be printed. Otherwise a new line
  * will not be printed.
  */
@@ -19,11 +17,11 @@ void print_string(char *string, int newline)
 		write(STDOUT_FILENO, "\n", 1);
 }
 
-/*** PRINT A SINGLE LETTER ***/
+
 /**
- * _putchar - Writes a character to stdout
- * @c: Character that will be written to stdout
- * Return: Upon success how many characters were written.
+ * _putchar - Prints a character to standard output
+ * @c: Character that will be printed to standard output
+ * Return: Upon success how many characters were printed.
  */
 int _putchar(char c)
 {
@@ -31,10 +29,10 @@ int _putchar(char c)
 	return (1);
 }
 
-/*** PRINT EVERY DIGIT OF A NUMBER AS SINGLE CHARS ***/
+
 /**
  * print_numbers - Prints an unsigned number
- * @n: unsigned integer to be printed
+ * @n:the unsigned integer to be printed
  * Return: The amount of numbers printed
  */
 int print_numbers(int n)

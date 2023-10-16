@@ -1,10 +1,12 @@
 #include "main.h"
 
 /**
- * new_help_alias_builtin - help builtin command alias
- * @vars: if command matches a builtin name, text files is sent to stdout
+ *new_help_alias_builtin - Implements a new help alias
+ *	for the built-in function
+ * @vars: Pointer to the structure holding variables
  * Return: 0 if sucess
  */
+
 void new_help_alias_builtin(vars_t *vars)
 
 {
@@ -41,8 +43,10 @@ void new_help_alias_builtin(vars_t *vars)
 		new_help_else_builtin(vars);
 }
 /**
- * new_help_else_builtin -error message if not command found
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * new_help_else_builtin - prints an error message
+ *	if the command is not found
+ * @vars: if command matches a builtin name,
+ *	text files is sent to the standard output
  * Return: 0 if sucess
  */
 

@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * check_if_matched - checks if a character matches any in a string
- * @c: character to check
- * @string: string to check
+* check_if_matched - checks whether a character matches any in a string
+ * @c: character to be checked
+ * @string: string to be checked
  *
- * Return: 1 if match, 0 if not
+ * Return: 1 if there is a match, 0 if there is not
  */
 unsigned int check_if_matched(char c, const char *string)
 {
@@ -19,12 +19,15 @@ unsigned int check_if_matched(char c, const char *string)
 }
 
 /**
- * new_string_token - custom strtok
- * @string: string to tokenize
- * @deli: deliiter to tokenize against
+ * new_string_token - A custom implementation of strtok
+ * @string: The string that needs to be tokenized
+ * @deli: The delimiter used for tokenization
  *
- * Return: pointer to the next token or NULL
+ * Description: This function tokenizes
+ *	the provided string based on the specified delimiter.
+ * Return: A pointer to the next token or NULL if there are no more tokens.
  */
+
 char *new_string_token(char *string, const char *deli)
 {
 	static char *token_starts;
@@ -66,13 +69,14 @@ char *new_string_token(char *string, const char *deli)
 }
 
 /**
- * path_build - Combines two strings one representing the path directory and
- * another representing the command file.
+ * path_build - Concatenates two strings to form a complete file path.
  * @dirctry: Represents a directory in the path.
  * @cmd: Represents a file in a directory of the path.
- * Return: Upon success a string representing the full path of a command.
- * Otherwise NULL.
+ *
+ * Return: If successful, returns a string representing
+ *	the complete command path; otherwise, returns NULL.
  */
+
 char *path_build(char *dirctry, char *cmd)
 {
 	int i, j;

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * *add_node_integer - Add node in the beginning
+ * *add_node_integer - Add a node in the beginning
  * @head: The pointer of the history list.
  * @string: The string received.
  *
@@ -41,10 +41,10 @@ void *add_node_integer(history_t **head, char *string)
 }
 
 /**
- * free_list_iningert - free pointers related with malloc
- * @head: The pointer of the list
+ * free_list_iningert - free pointers associated with malloc
+ * @head: pointer to the list
  *
- * Return: The number of elements in the list
+ * Return:Number of elements in the list
  */
 
 void free_list_intinger(history_t *head)
@@ -65,9 +65,9 @@ void free_list_intinger(history_t *head)
 }
 
 /**
- * print_new_history - Print the list of a single list
- * @vars: stringucture with variables.
- * Return: The number of elements in the list
+ * print_new_history - Displays the elements of a singular list.
+ * @vars: A structure containing variables.
+ * Return: The count of elements in the list.
  */
 
 void print_new_history(vars_t *vars)
@@ -110,13 +110,13 @@ void print_new_history(vars_t *vars)
 		return;
 	}
 }
-/*** WRITES STRingING TO STDOUT ***/
 /**
- * _print3 - writes a stringing to standard output
- * @string: stringing to write
+ * _print3 - writes a string to standard output
+ * @string: string to print
  *
- * Return: number of chars printed or -1 on failure
+ * Return: number of characters printed or -1 on failure
  */
+
 ssize_t _print3(char *string)
 {
 	ssize_t i, length;

@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- * new_help_history_cmd - help builtin command history
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * new_help_history_cmd -Displays help builtin command history
+ * @vars: if the command matches a built-in name,
+ *	text files is sent to stdout
  * Return: 0 if sucess
  */
 void new_help_history_cmd(vars_t *vars)
@@ -38,8 +39,9 @@ void new_help_history_cmd(vars_t *vars)
 		new_help_unalias_builtin(vars);
 }
 /**
- * new_help_unalias_builtin - help builtin command unalias
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * new_help_unalias_builtin - Provides help for the 'unalias' builtin command
+ * @vars: if command matches a builtin name,
+ *	text files is sent to standard output
  * Return: 0 if sucess
  */
 void new_help_unalias_builtin(vars_t *vars)
@@ -77,7 +79,8 @@ void new_help_unalias_builtin(vars_t *vars)
 }
 /**
  * new_help_unset_builtin - help builtin command unset
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * @vars: if the command matches a builtin name,
+ *	text files is sent to standard output
  * Return: 0 if sucess
  */
 void new_help_unset_builtin(vars_t *vars)
@@ -115,7 +118,8 @@ void new_help_unset_builtin(vars_t *vars)
 }
 /**
  * new_help_builtin_unsetenv - help builtin command unsetenv
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * @vars: if the command matches a builtin name,
+ *	text files is sent to standard output
  * Return: 0 if sucess
  */
 void new_help_builtin_unsetenv(vars_t *vars)
@@ -153,7 +157,8 @@ void new_help_builtin_unsetenv(vars_t *vars)
 }
 /**
  * new_help_builtin_setenv - help builtin command setenv
- * @vars: if command matches a builtin name, text files is sent to stdout
+ * @vars: if the command matches a builtin name,
+ *	text files is sent to standard output
  * Return: 0 if sucess
  */
 void new_help_builtin_setenv(vars_t *vars)

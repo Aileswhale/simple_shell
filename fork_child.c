@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * child_fork - Creates a child in  order to execute another program.
- * @vars: A structure cointaining a array of pointers and a string.
+ * child_fork - Creates a child to execute another program.
+ * @vars: A structure cointaining an array of pointers and a string.
  */
 void child_fork(vars_t vars)
 {
@@ -20,7 +20,7 @@ void child_fork(vars_t vars)
 		cmd = find_path(vars, vars.array_tok[0]);
 		if (cmd == NULL)
 		{
-			/* Looking for file in current dir */
+
 			check = stat(tmp_cmd, &buff);
 			if (check == -1)
 			{
@@ -29,7 +29,7 @@ void child_fork(vars_t vars)
 
 				exit(100);
 			}
-			/* file exist in cwd or has full path */
+
 			cmd = tmp_cmd;
 		}
 		vars.array_tok[0] = cmd;
@@ -41,14 +41,17 @@ void child_fork(vars_t vars)
 	}
 }
 
+
 /**
- * find_path - Acts as an interface for functions that will be able
- * to find the full path of a program.
- * @cmd: A common cmd such as ls, echo, pwd, etc..
- * Return: On success a string with the full path of the program.
- * @vars: structure with variables.
- * oterwise returns NULL.
+ * find_path - This function acts as a bridge for other functions to find
+ *             the full path of a program.
+ * @cmd: A common command such as ls, echo, pwd, etc.
+ * 
+ * Return: Returns a string containing the complete path of the program upon success.
+ *         If not successful, it returns NULL.
+ * @vars: Structure that holds variables.
  */
+
 char *find_path(vars_t vars, char *cmd)
 {
 	char *string = "PATH";
@@ -85,12 +88,13 @@ char *find_path(vars_t vars, char *cmd)
 }
 
 /**
- * env_path - Finds the index of an environmental variable.
- * @vars: structure with variables will be used
- * @string: Environmental variable that needs to be found.
- * Return: Upon success returns the inde of the environmental variale
- * otherwise returns -1.
+ * env_path - Identify the index of an environmental variable.
+ * @vars: Structure containing the variables to be utilized.
+ * @string: Environmental variable that requires identification.
+ * Return: Returns the index of the environmental variable upon success;
+ *	 otherwise, returns -1.
  */
+
 int env_path(vars_t vars, char *string)
 {
 	int i, length, j;
@@ -110,14 +114,16 @@ int env_path(vars_t vars, char *string)
 }
 
 /**
- * tokenise_path - Separates a string of path as an array of
- * strings containing the path directories.
- * @vars: structure with variables will be used
- * @index: index of the path in the environment variables.
- * @string: string to separate and tokenize
- * Return: On success a NLL terminated array of string.
- * otherwise returns NULL.
+ * tokenise_path - Converts a string of a path into 
+ * 	an array of strings that represent the path directories.
+ * @vars: A structure containing the variables to be used.
+ * @index: The index of the path in the environment variables.
+ * @string: The string to be separated and tokenized.
+ *
+ * Return: On success, a NULL-terminated array of strings
+ * 	 representing the path directories. Otherwise, it returns NULL.
  */
+
 char **tokenise_path(vars_t vars, int index, char *string)
 {
 	char *env_var;
@@ -136,15 +142,16 @@ char **tokenise_path(vars_t vars, int index, char *string)
 }
 
 /**
- * search_dir - Looks through directories stored in token_path
- * for a specific file aka cmd.
- * @token_path: A pointer to array of strings containings de paths
- * contained in the PATH environment variable.
- * @cmd: Represents a cmd. i.e. ls, /bin/ls, pwd, etc.
+ * search_dir - Examines directories stored in token_path
+ * 	to locate a specific file known as cmd.
+ * @token_path: Pointer to an array of strings containing
+ * 	the paths found in the PATH environment variable.
+ * @cmd: Represents a command, e.g., ls, /bin/ls, pwd, etc.
  *
- * Return: On success a string with the dir containing the
- * cmd file. Otherwise NULL.
+ * Return: If successful, returns a string with the
+ * directory containing the cmd file; otherwise, returns NULL.
  */
+
 char *search_dir(char **token_path, char *cmd)
 {
 	int i, s;
