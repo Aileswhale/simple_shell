@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 
 /**
  * child_fork - Creates a child to execute another program.

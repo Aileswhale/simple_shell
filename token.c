@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 /**
 * check_if_matched - checks whether a character matches any in a string
  * @c: character to be checked

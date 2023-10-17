@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 /**
  * builtin_cmd - verifies whether the command is a builtin
  * @vars: variables to be checked

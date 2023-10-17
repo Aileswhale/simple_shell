@@ -1,5 +1,5 @@
-#ifndef _SHELL_MAIN_
-#define _SHELL_MAIN_
+#ifndef __AILESWHALE_
+#define _AILESWHALE_
 #define UNUSED(x) (void)(x)
 
 #include <stdio.h>
@@ -154,4 +154,4 @@ void print_msg(char *string);
 void end_of_file(char *buffer);
 unsigned int signal_flag;
 
-#endif /* _SHELL_MAIN_ */
+#endif /*_AILESWHALE_*/

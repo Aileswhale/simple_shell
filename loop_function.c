@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 /**
  * new_help_history_cmd -Displays help builtin command history
  * @vars: if the command matches a built-in name,

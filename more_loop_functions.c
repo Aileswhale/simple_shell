@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 
 /**
  *new_help_alias_builtin - Implements a new help alias

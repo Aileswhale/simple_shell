@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 
 /**
  * _realloc - Doubles the space allocated for a pointer.

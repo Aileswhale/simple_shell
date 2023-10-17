@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 
 /**
  * signal_handler - manage the ^C signal interuption

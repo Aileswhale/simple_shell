@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 
 /**
  * print_the_error - Prints an error message when a command is not found.

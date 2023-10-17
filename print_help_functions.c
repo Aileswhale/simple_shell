@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 
 /**
  * _print_error -helps print a string to a sdandard  error

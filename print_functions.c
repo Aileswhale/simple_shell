@@ -1,4 +1,4 @@
-#include "main.h"
+#include "aileswhale.h"
 /**
  * print_string - Prints a string character by character.
  * @string:the string to be printed. If the string is NULL it will print (null)
