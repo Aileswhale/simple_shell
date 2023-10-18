@@ -87,7 +87,7 @@ void new_the_cd(vars_t *vars);
 /*** TOKENIZER-RELATED FUNCTIONS ***/
 char **tokenise(char *buff, char *deli);
 unsigned int check_if_matched(char c, const char *string);
-char **_realloc(char **pointer, size_t *sizes);
+char **reallocate(char **pointer, size_t *sizes);
 char *new_string_token(char *string, const char *deli);
 
 

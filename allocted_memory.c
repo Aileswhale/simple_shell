@@ -8,7 +8,7 @@
  * Return: Pointer to the newly reallocated array.
  */
 
-char **_realloc(char **pointer, size_t *sizes)
+char **reallocate(char **pointer, size_t *sizes)
 {
 	char **new;
 	size_t i;

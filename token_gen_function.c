@@ -25,7 +25,7 @@ char **tokenise(char *buff, char *deli)
 		i++;
 		if (i == m_count)
 		{
-			tokens = _realloc(tokens, &m_count);
+			tokens = reallocate(tokens, &m_count);
 			if (tokens == NULL)
 			{
 				perror("Fatal Error");
