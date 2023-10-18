@@ -1,8 +1,8 @@
 #include "aileswhale.h"
 
 /**
-* make_shell_environment - creates the shell environment 
-* 	from the provided environment.
+ * make_shell_enviroment - creates the shell environment
+ * from the provided environment.
  * @env: environment passed to main
  *
  * Return: a pointer to the newly created environment
@@ -43,8 +43,8 @@ void free_shell_env(char **env)
 }
 
 /**
- * chdir_to_env - change directory to the location 
- * 	indicated by the environment variable's address.
+ * chdir_to_enviroment - change directory to the location
+ * indicated by the environment variable's address.
  * @vars: structure variable of type vars_t.
  * @str: name of the targeted environment variable.
  * Return: Always returns void.

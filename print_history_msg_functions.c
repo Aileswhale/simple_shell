@@ -41,7 +41,7 @@ void *add_node_integer(history_t **head, char *string)
 }
 
 /**
- * free_list_iningert - free pointers associated with malloc
+ * free_list_intinger - free pointers associated with malloc
  * @head: pointer to the list
  *
  * Return:Number of elements in the list

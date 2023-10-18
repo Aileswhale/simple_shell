@@ -14,8 +14,8 @@ void print_cdir_1(vars_t *vars)
 }
 
 /**
- * print_cdir_2 - Prints an error message if the specified cd argument does not exist.
- *               For example, if the argument is 'cd das7d32'.
+ * print_cdir_2 - Prints an error message if the specified cd
+ * argument does not exist. For example, if the argument is 'cd das7d32'.
  * @vars: Parameter to include vars
  * Return: Always returns void and prints the following message.
  */

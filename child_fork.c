@@ -46,9 +46,8 @@ void child_fork(vars_t vars)
  * find_path - This function acts as a bridge for other functions to find
  *             the full path of a program.
  * @cmd: A common command such as ls, echo, pwd, etc.
- * 
- * Return: Returns a string containing the complete path of the program upon success.
- *         If not successful, it returns NULL.
+ * Return: Returns a string containing the complete path of the program
+ * upon success. If not successful, it returns NULL.
  * @vars: Structure that holds variables.
  */
 
@@ -114,14 +113,14 @@ int env_path(vars_t vars, char *string)
 }
 
 /**
- * tokenise_path - Converts a string of a path into 
- * 	an array of strings that represent the path directories.
+ * tokenise_path - Converts a string of a path into
+ * an array of strings that represent the path directories.
  * @vars: A structure containing the variables to be used.
  * @index: The index of the path in the environment variables.
  * @string: The string to be separated and tokenized.
  *
  * Return: On success, a NULL-terminated array of strings
- * 	 representing the path directories. Otherwise, it returns NULL.
+ * representing the path directories. Otherwise, it returns NULL.
  */
 
 char **tokenise_path(vars_t vars, int index, char *string)
@@ -143,9 +142,9 @@ char **tokenise_path(vars_t vars, int index, char *string)
 
 /**
  * search_dir - Examines directories stored in token_path
- * 	to locate a specific file known as cmd.
+ * to locate a specific file known as cmd.
  * @token_path: Pointer to an array of strings containing
- * 	the paths found in the PATH environment variable.
+ * the paths found in the PATH environment variable.
  * @cmd: Represents a command, e.g., ls, /bin/ls, pwd, etc.
  *
  * Return: If successful, returns a string with the

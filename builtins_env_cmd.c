@@ -87,7 +87,8 @@ void print_the_enviroment(vars_t *vars)
 }
 
 /**
- * create_new_env - create a new environment variable, or edit an existing variable
+ * create_new_env - create a new environment variable,
+ * or edit an existing variable
  * @vars: a pointer to a struct of variables
  *
  * Return: void
