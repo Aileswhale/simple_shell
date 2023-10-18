@@ -1,7 +1,7 @@
 #include "aileswhale.h"
 
 /**
- * _realloc - Doubles the space allocated for a pointer.
+ * realloc - Doubles the space allocated for a pointer.
  * @pointer: Pointer to the original array.
  * @sizes: Pointer to the number of elements in the original array.
  *
