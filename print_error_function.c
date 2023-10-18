@@ -1,23 +1,6 @@
 #include "aileswhale.h"
 
 /**
- * print_the_error - Prints an error message when a command is not found.
- * @counts: A counter that keeps track of
- * the number of commands run on the shell.
- * @av: The name of the program that is running the shell.
- * @cmd: The specific command that is not found.
- */
-
-void print_the_error(char *av, int counts, char *cmd)
-{
-	print_string(av, 1);
-	print_string(": ", 1);
-	print_numbers(counts);
-	print_string(": ", 1);
-	print_string(cmd, 1);
-}
-
-/**
  * print_exec_error - Function for printing execution errors.
  * @av: The name of the program that is running the shell.
  * @counts: Keeps track of the number of commands that have been entered.
@@ -41,4 +24,21 @@ void print_simple_error(void)
 {
 	perror("Error");
 	exit(100);
+}
+
+/**
+ * print_the_error - Prints an error message when a command is not found.
+ * @counts: A counter that keeps track of
+ * the number of commands run on the shell.
+ * @av: The name of the program that is running the shell.
+ * @cmd: The specific command that is not found.
+ */
+
+void print_the_error(char *av, int counts, char *cmd)
+{
+	print_string(av, 1);
+	print_string(": ", 1);
+	print_numbers(counts);
+	print_string(": ", 1);
+	print_string(cmd, 1);
 }

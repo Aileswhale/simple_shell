@@ -1,21 +1,43 @@
 #include "aileswhale.h"
-/**
-* check_if_matched - checks whether a character matches any in a string
- * @c: character to be checked
- * @string: string to be checked
- *
- * Return: 1 if there is a match, 0 if there is not
- */
-unsigned int check_if_matched(char c, const char *string)
-{
-	unsigned int i;
 
-	for (i = 0; string[i] != '\0'; i++)
+/**
+ * path_build - Concatenates two strings to form a complete file path.
+ * @dirctry: Represents a directory in the path.
+ * @cmd: Represents a file in a directory of the path.
+ *
+ * Return: If successful, returns a string representing
+ *      the complete command path; otherwise, returns NULL.
+ */
+
+char *path_build(char *dirctry, char *cmd)
+{
+	int i, j;
+	int dir_len;
+	int cmd_len;
+	int length;
+	char *built;
+
+	if (dirctry == NULL || cmd == NULL)
+		return (NULL);
+	dir_len = strlen(dirctry) + 1;
+	cmd_len = strlen(cmd) + 1;
+	length = dir_len + cmd_len;
+
+	built = malloc(sizeof(char) * length);
+	if (built == NULL)
+		return (NULL);
+
+	for (i = 0; i < length; i++)
 	{
-		if (c == string[i])
-			return (1);
+		for (j = 0; dirctry[j] != '\0'; j++, i++)
+			built[i] = dirctry[j];
+		built[i] = '/';
+		i++;
+		for (j = 0; cmd[j] != '\0'; j++, i++)
+			built[i] = cmd[j];
 	}
-	return (0);
+	built[--i] = '\0';
+	return (built);
 }
 
 /**
@@ -69,41 +91,20 @@ char *new_string_token(char *string, const char *deli)
 }
 
 /**
- * path_build - Concatenates two strings to form a complete file path.
- * @dirctry: Represents a directory in the path.
- * @cmd: Represents a file in a directory of the path.
+ * check_if_matched - checks whether a character matches any in a string
+ * @c: character to be checked
+ * @string: string to be checked
  *
- * Return: If successful, returns a string representing
- *	the complete command path; otherwise, returns NULL.
+ * Return: 1 if there is a match, 0 if there is not
  */
-
-char *path_build(char *dirctry, char *cmd)
+unsigned int check_if_matched(char c, const char *string)
 {
-	int i, j;
-	int dir_len;
-	int cmd_len;
-	int length;
-	char *built;
+	unsigned int i;
 
-	if (dirctry == NULL || cmd == NULL)
-		return (NULL);
-	dir_len = strlen(dirctry) + 1;
-	cmd_len = strlen(cmd) + 1;
-	length = dir_len + cmd_len;
-
-	built = malloc(sizeof(char) * length);
-	if (built == NULL)
-		return (NULL);
-
-	for (i = 0; i < length; i++)
+	for (i = 0; string[i] != '\0'; i++)
 	{
-		for (j = 0; dirctry[j] != '\0'; j++, i++)
-			built[i] = dirctry[j];
-		built[i] = '/';
-		i++;
-		for (j = 0; cmd[j] != '\0'; j++, i++)
-			built[i] = cmd[j];
+		if (c == string[i])
+			return (1);
 	}
-	built[--i] = '\0';
-	return (built);
+	return (0);
 }

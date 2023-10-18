@@ -1,6 +1,47 @@
 #include "aileswhale.h"
 
 /**
+ * _print3 - writes a string to standard output
+ * @string: string to print
+ *
+ * Return: number of characters printed or -1 on failure
+ */
+
+ssize_t _print3(char *string)
+{
+	ssize_t i, length;
+
+	for (i = 0; string[i]; i++)
+		;
+
+	length = write(1, string, i);
+	if (length != i)
+	{
+		perror("Error");
+		return (-1);
+	}
+	return (length);
+}
+/**
+ *print_msg - print a string to standart output
+ * @string: string to print.
+ * Return: void
+ */
+void print_msg(char *string)
+{
+	long number, length;
+
+	number = strlen(string);
+	length = write(STDOUT_FILENO, string, number);
+	if (length != number)
+
+	{
+		perror("error");
+		exit(1);
+	}
+}
+
+/**
  * *add_node_integer - Add a node in the beginning
  * @head: The pointer of the history list.
  * @string: The string received.
@@ -108,45 +149,5 @@ void print_new_history(vars_t *vars)
 		free_list_intinger(temporary);
 		free_list_intinger(temporary2);
 		return;
-	}
-}
-/**
- * _print3 - writes a string to standard output
- * @string: string to print
- *
- * Return: number of characters printed or -1 on failure
- */
-
-ssize_t _print3(char *string)
-{
-	ssize_t i, length;
-
-	for (i = 0; string[i]; i++)
-		;
-
-	length = write(1, string, i);
-	if (length != i)
-	{
-		perror("Error");
-		return (-1);
-	}
-	return (length);
-}
-/**
- *print_msg - print a string to standart output
- * @string: string to print.
- * Return: void
- */
-void print_msg(char *string)
-{
-	long number, length;
-
-	number = strlen(string);
-	length = write(STDOUT_FILENO, string, number);
-	if (length != number)
-
-	{
-		perror("error");
-		exit(1);
 	}
 }

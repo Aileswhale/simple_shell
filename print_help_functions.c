@@ -1,26 +1,6 @@
 #include "aileswhale.h"
 
 /**
- * _print_error -helps print a string to a sdandard  error
- * @string:the string to be printed.
- * Return: void
- */
-
-void _print_error(char *string)
-{
-	long number, length;
-
-	number = strlen(string);
-	length = write(STDERR_FILENO, string, number);
-	if (length != number)
-
-	{
-		perror("fatal error");
-		exit(100);
-	}
-}
-
-/**
  * print_error_message - Prints error messages to standard error
  * @vars: Pointer to a structure of variables
  * @message: Message to be printed
@@ -84,4 +64,24 @@ char *int_converter(unsigned int counter)
 		counter /= 10;
 	}
 	return (num_str);
+}
+
+/**
+ * _print_error -helps print a string to a sdandard  error
+ * @string:the string to be printed.
+ * Return: void
+ */
+
+void _print_error(char *string)
+{
+	long number, length;
+
+	number = strlen(string);
+	length = write(STDERR_FILENO, string, number);
+	if (length != number)
+
+	{
+		perror("fatal error");
+		exit(100);
+	}
 }

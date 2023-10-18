@@ -1,22 +1,4 @@
 #include "aileswhale.h"
-/**
- * print_string - Prints a string character by character.
- * @string:the string to be printed. If the string is NULL it will print (null)
- * @newline: If integer is 0 a new line will be printed. Otherwise a new line
- * will not be printed.
- */
-void print_string(char *string, int newline)
-{
-	int i;
-
-	if (string == NULL)
-		string = "(null)";
-	for (i = 0; string[i] != '\0'; i++)
-		write(STDOUT_FILENO, &string[i], 1);
-	if (newline == 0)
-		write(STDOUT_FILENO, "\n", 1);
-}
-
 
 /**
  * _putchar - Prints a character to standard output
@@ -57,4 +39,22 @@ int print_numbers(int n)
 	}
 
 	return (length);
+}
+
+/**
+ * print_string - Prints a string character by character.
+ * @string:the string to be printed. If the string is NULL it will print (null)
+ * @newline: If integer is 0 a new line will be printed. Otherwise a new line
+ * will not be printed.
+ */
+void print_string(char *string, int newline)
+{
+	int i;
+
+	if (string == NULL)
+		string = "(null)";
+	for (i = 0; string[i] != '\0'; i++)
+		write(STDOUT_FILENO, &string[i], 1);
+	if (newline == 0)
+		write(STDOUT_FILENO, "\n", 1);
 }

@@ -1,6 +1,52 @@
 #include "aileswhale.h"
 
 /**
+ * search_dir - Examines directories stored in token_path
+ * to locate a specific file known as cmd.
+ * @token_path: Pointer to an array of strings containing
+ * the paths found in the PATH environment variable.
+ * @cmd: Represents a command, e.g., ls, /bin/ls, pwd, etc.
+ *
+ * Return: If successful, returns a string with the
+ * directory containing the cmd file; otherwise, returns NULL.
+ */
+
+char *search_dir(char **token_path, char *cmd)
+{
+	int i, s;
+	char *cwd, *buff;
+	size_t size;
+	struct stat stat_buff;
+
+	buff = NULL;
+	size = 0;
+	cwd = getcwd(buff, size);
+	if (cwd == NULL)
+		return (NULL);
+	if (cmd[0] == '/')
+		cmd = cmd + 1;
+	for (i = 0; token_path[i] != NULL; i++)
+	{
+		s = chdir(token_path[i]);
+		if (s == -1)
+		{
+			perror("ERROR!");
+			return (NULL);
+		}
+		s = stat(cmd, &stat_buff);
+		if (s == 0)
+		{
+			chdir(cwd);
+			free(cwd);
+			return (token_path[i]);
+		}
+	}
+	chdir(cwd);
+	free(cwd);
+	return (NULL);
+}
+
+/**
  * child_fork - Creates a child to execute another program.
  * @vars: A structure cointaining an array of pointers and a string.
  */
@@ -138,50 +184,4 @@ char **tokenise_path(vars_t vars, int index, char *string)
 		return (NULL);
 
 	return (token_path);
-}
-
-/**
- * search_dir - Examines directories stored in token_path
- * to locate a specific file known as cmd.
- * @token_path: Pointer to an array of strings containing
- * the paths found in the PATH environment variable.
- * @cmd: Represents a command, e.g., ls, /bin/ls, pwd, etc.
- *
- * Return: If successful, returns a string with the
- * directory containing the cmd file; otherwise, returns NULL.
- */
-
-char *search_dir(char **token_path, char *cmd)
-{
-	int i, s;
-	char *cwd, *buff;
-	size_t size;
-	struct stat stat_buff;
-
-	buff = NULL;
-	size = 0;
-	cwd = getcwd(buff, size);
-	if (cwd == NULL)
-		return (NULL);
-	if (cmd[0] == '/')
-		cmd = cmd + 1;
-	for (i = 0; token_path[i] != NULL; i++)
-	{
-		s = chdir(token_path[i]);
-		if (s == -1)
-		{
-			perror("ERROR!");
-			return (NULL);
-		}
-		s = stat(cmd, &stat_buff);
-		if (s == 0)
-		{
-			chdir(cwd);
-			free(cwd);
-			return (token_path[i]);
-		}
-	}
-	chdir(cwd);
-	free(cwd);
-	return (NULL);
 }
